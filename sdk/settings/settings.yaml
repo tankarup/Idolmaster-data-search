@@ -1,0 +1,6 @@
+defaultLocale: ja
+localizedSettings:
+  displayName: アイドルマスターデータ検索
+  pronunciation: アイドルマスターデータ検索
+  voice: female_2
+projectId: imas-database

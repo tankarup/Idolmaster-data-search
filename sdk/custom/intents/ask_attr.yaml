@@ -1,0 +1,16 @@
+parameters:
+- name: attr
+  type:
+    name: attributions
+- name: idol
+  type:
+    name: idols
+trainingPhrases:
+- ($idol '律っちゃん' auto=false)の($attr 'ヒップサイズ' auto=false)はどれくらい
+- ($idol 'はるるん' auto=false)の($attr 'バスト' auto=false)を教えて
+- ($idol '秋月律子' auto=false)の($attr '体重' auto=false)を教えて
+- ($idol '春香' auto=false)の($attr '年齢' auto=false)
+- ($idol '春香' auto=false)の($attr '身長' auto=false)
+- ($idol '天海春香' auto=false)の($attr '身長' auto=false)
+- ($idol '春香' auto=false)の($attr '背の高さ' auto=false)を教えて
+- ($idol '秋月律子' auto=false)の($attr '身長' auto=false)を教えて

@@ -1,0 +1,7 @@
+handler:
+  staticPrompt:
+    candidates:
+    - promptResponse:
+        firstSimple:
+          variants:
+          - speech: 申し訳ありません。もう一度お願いできますか？

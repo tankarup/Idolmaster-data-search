@@ -1,0 +1,8 @@
+handler:
+  staticPrompt:
+    candidates:
+    - promptResponse:
+        firstSimple:
+          variants:
+          - speech: 申し訳ありませんが、問題が発生しているようです。いったん終了します。
+transitionToScene: actions.scene.END_CONVERSATION

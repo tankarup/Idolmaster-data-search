@@ -1,0 +1,10 @@
+handler:
+  staticPrompt:
+    candidates:
+    - promptResponse:
+        firstSimple:
+          variants:
+          - speech: |-
+              アイドルマスターデータ検索です。
+              何を知りたいですか。
+transitionToScene: Reception
