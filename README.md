@@ -12,6 +12,7 @@
 1. コマンドプロンプトでダウンロードしたsdkフォルダに移動
 1. "sdk\settings\settings.yaml"を開き、projectIdを作成した自分のプロジェクトのIDに書き換える。
 1. `gaction push`でActions on Google Consoleにアップロード
+1. webhookでfirebaseを有効化
 1. Testで動く、はず。
 
 ## 謝辞
