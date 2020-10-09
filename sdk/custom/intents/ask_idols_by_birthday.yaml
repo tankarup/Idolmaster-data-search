@@ -1,0 +1,12 @@
+parameters:
+- name: birthday
+  type:
+    name: actions.type.DateTime
+- name: attr
+  type:
+    name: attributions
+trainingPhrases:
+- ($attr '誕生日' auto=false)が($birthday '一月一日' auto=false)のアイドル
+- ($birthday '10月1日' auto=false)に($attr '生まれた' auto=false)メンバーは
+- ($birthday '明日' auto=false)が($attr '誕生日' auto=false)のアイドルは
+- ($birthday '今日' auto=false)が($attr '誕生日' auto=false)のアイドルを教えて

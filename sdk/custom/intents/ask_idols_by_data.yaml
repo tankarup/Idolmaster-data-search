@@ -1,0 +1,12 @@
+parameters:
+- name: attr
+  type:
+    name: attributions
+- name: data
+  type:
+    name: actions.type.Number
+trainingPhrases:
+- ($attr 'バストサイズ' auto=false)が($data '72' auto=false)cmの子
+- ($attr '年齢' auto=false)が($data '18' auto=false)才のアイドル
+- ($attr '体重' auto=false)が($data '40' auto=false)kgのアイドル
+- ($attr '身長' auto=false)が($data '160' auto=false)cmのアイドル

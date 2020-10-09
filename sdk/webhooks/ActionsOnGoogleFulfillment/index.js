@@ -3467,6 +3467,14 @@ const idols = {'アスラン=BBII世': {'じむしょ': 'さいこーぷろ',
          '年齢': '9才',
          '誕生日': '7月20日',
          '身長': '132cm'}};
+
+function clear_params(conv){
+  conv.session.params.attr = null;
+  conv.session.params.idol = null;
+  conv.session.params.birthday = null;
+  conv.session.params.data = null;  
+}
+
 app.handle('get_idol_data', conv => {
 
   // Implement your code here
@@ -3490,9 +3498,68 @@ app.handle('get_idol_data', conv => {
     speech: speech ,
     text: text
   }));
-  conv.session.params.attr = null;
-  conv.session.params.idol = null;
+  
+  clear_params(conv);
 
 });
+
+app.handle('get_idols_by_birthday', conv => {
+  const birthday = conv.session.params.birthday.month + '月' + conv.session.params.birthday.day + '日';
+  const attr = conv.session.params.attr;
+  
+  //指定された誕生日のアイドルを全員探す。
+  let count = 0;
+  let text = birthday + 'が誕生日のアイドルは';
+  for(let name in idols){
+    const idol = idols[name];
+    if (idol['誕生日'] == birthday){
+      text += '、' + idol['名前'] + 'さん';
+      count += 1;
+    }
+  }
+
+  if (count > 0){
+  	text += 'です。';
+  } else {
+    text += '見つかりませんでした。';
+  }
+  conv.add(text);
+  
+  clear_params(conv);
+});
+
+app.handle('get_idols_by_data', conv => {
+  const val = conv.session.params.data;
+  const attr = conv.session.params.attr;
+  
+  let data = '';
+  if (attr == '身長') data = val + 'cm';
+  else if (attr == '体重') data = val + 'kg';
+  else if (attr == '年齢') data = val + '才';
+  else if (attr == 'バスト') data = val + 'cm';
+  else if (attr == 'ウェスト') data = val + 'cm';
+  else if (attr == 'ヒップ') data = val + 'cm';
+  
+  //指定された誕生日のアイドルを全員探す。
+  let count = 0;
+  let text = attr + 'が' + data + 'のアイドルは';
+  for(let name in idols){
+    const idol = idols[name];
+    if (idol[attr] == data){
+      text += '、' + idol['名前'] + 'さん';
+      count += 1;
+    }
+  }
+
+  if (count > 0){
+  	text += 'です。';
+  } else {
+    text += '見つかりませんでした。';
+  }
+  conv.add(text);
+  
+  clear_params(conv);
+});
+
 
 exports.ActionsOnGoogleFulfillment = functions.https.onRequest(app);

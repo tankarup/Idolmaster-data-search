@@ -10,6 +10,16 @@ conditionalEvents:
             - speech: 次をどうぞ。
     webhookHandler: get_idol_data
   transitionToScene: Reception
+- condition: scene.slots.status == "FINAL" && session.params.birthday !="" && session.params.attr
+    !=""
+  handler:
+    webhookHandler: get_idols_by_birthday
+  transitionToScene: Reception
+- condition: scene.slots.status == "FINAL" && session.params.data !="" && session.params.attr
+    !=""
+  handler:
+    webhookHandler: get_idols_by_data
+  transitionToScene: Reception
 - condition: scene.slots.status == "FINAL" && session.params.attr != ""
   handler:
     staticPrompt:
@@ -29,6 +39,17 @@ conditionalEvents:
 intentEvents:
 - intent: ask_attr
   transitionToScene: Reception
+- handler:
+    staticPrompt:
+      candidates:
+      - promptResponse:
+          firstSimple:
+            variants:
+            - speech: 誕生日が $session.params.birthday のアイドルを知りたいんですか？
+  intent: ask_idols_by_birthday
+  transitionToScene: Reception
+- intent: ask_idols_by_data
+  transitionToScene: Reception
 slots:
 - commitBehavior:
     writeSessionParam: attr
@@ -40,3 +61,13 @@ slots:
   name: idol
   type:
     name: idols
+- commitBehavior:
+    writeSessionParam: birthday
+  name: birthday
+  type:
+    name: actions.type.Date
+- commitBehavior:
+    writeSessionParam: data
+  name: data
+  type:
+    name: actions.type.Number

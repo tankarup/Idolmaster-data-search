@@ -3250,4 +3250,4 @@ synonym:
       - 薫
       - 薫ちゃん
       - 薫さん
-  matchType: EXACT_MATCH
+  matchType: FUZZY_MATCH
