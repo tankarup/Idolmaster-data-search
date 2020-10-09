@@ -3474,7 +3474,17 @@ function clear_params(conv){
   conv.session.params.birthday = null;
   conv.session.params.data = null;  
 }
-
+//Actions on Googleで「今日」を認識させると、UTC時間の日付が返ってくる。これを日本時間の日付に変換する。
+function get_Japan_day(month, day){
+	let today = new Date();
+	today.setMonth(month - 1);
+	today.setDate(day);
+	//日本時間に変換
+	today.setHours(today.getHours() + 8);
+	const m = today.getMonth() + 1;
+	const d = today.getDate();
+	return m + '月' + d + '日';
+}
 app.handle('get_idol_data', conv => {
 
   // Implement your code here
@@ -3504,7 +3514,7 @@ app.handle('get_idol_data', conv => {
 });
 
 app.handle('get_idols_by_birthday', conv => {
-  const birthday = conv.session.params.birthday.month + '月' + conv.session.params.birthday.day + '日';
+  const birthday = get_Japan_day(conv.session.params.birthday.month, conv.session.params.birthday.day);
   const attr = conv.session.params.attr;
   
   //指定された誕生日のアイドルを全員探す。

@@ -1,6 +1,23 @@
+category: GAMES_AND_TRIVIA
 defaultLocale: ja
+enabledRegions:
+- Japan
 localizedSettings:
+  developerEmail: taschen235711@yahoo.co.jp
+  developerName: たんかるP
   displayName: アイドルマスターデータ検索
+  fullDescription: |-
+    アイドルマスターに登場するアイドルの各種データを検索します。現在のバージョンでは、誕生日、年齢、身長、体重、BWHの検索に対応しています。
+
+    「天海春香の身長を教えて」「今日が誕生日のアイドルは？」「デコリーナ先輩の年齢は？」といった感じで話しかけてください。
+
+    補足情報：
+    ・アイドルマスターはバンダイナムコエンターテインメント社が所有するコンテンツです。
+    ・アイドルの名前をはじめとしたデータは、データベースサイト"im@sparql"のデータを使わせていただきました。
   pronunciation: アイドルマスターデータ検索
+  sampleInvocations:
+  - アイドルマスターデータ検索につないで
+  - アイドルマスターデータ検索を起動して
+  shortDescription: アイドルマスターに登場するアイドルの各種データを検索します。
   voice: female_2
 projectId: imas-database
