@@ -9,8 +9,8 @@
 1. Actions on Googleの開発環境を整える。
 1. Actions on Google Console でプロジェクトを作成する。
 1. このリポジトリからsdkフォルダをダウンロード
-1. コマンドプロンプトでダウンロードしたsdkフォルダに移動
 1. "sdk\settings\settings.yaml"を開き、projectIdを作成した自分のプロジェクトのIDに書き換える。
+1. コマンドプロンプトでダウンロードしたsdkフォルダに移動
 1. `gaction push`でActions on Google Consoleにアップロード
 1. webhookでfirebaseを有効化
 1. Testで動く、はず。
