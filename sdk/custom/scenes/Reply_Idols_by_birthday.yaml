@@ -1,0 +1,43 @@
+conditionalEvents:
+- condition: scene.slots.status == "FINAL"
+  handler:
+    staticPrompt:
+      candidates:
+      - promptResponse:
+          firstSimple:
+            variants:
+            - speech: |2-
+
+                次をどうぞ。
+    webhookHandler: get_idols_by_birthday
+  transitionToScene: Reception
+slots:
+- commitBehavior:
+    writeSessionParam: birthday
+  name: birthday
+  promptSettings:
+    initialPrompt:
+      staticPrompt:
+        candidates:
+        - promptResponse:
+            firstSimple:
+              variants:
+              - speech: 誕生日の日付を指定してください。
+  required: true
+  type:
+    name: actions.type.Date
+- commitBehavior:
+    writeSessionParam: attr
+  name: attr
+  promptSettings:
+    initialPrompt:
+      staticPrompt:
+        candidates:
+        - promptResponse:
+            firstSimple:
+              variants:
+              - speech: Enter the response that users will see or hear when this event
+                  occurs
+  required: true
+  type:
+    name: attributions

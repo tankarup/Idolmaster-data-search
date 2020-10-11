@@ -1,6 +1,7 @@
 handlers:
 - name: get_idol_data
-- name: get_idols_by_data
 - name: get_idols_by_birthday
+- name: get_idols_by_data
+- name: get_reply_text
 inlineCloudFunction:
   executeFunction: ActionsOnGoogleFulfillment

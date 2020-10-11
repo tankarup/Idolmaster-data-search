@@ -1,0 +1,42 @@
+conditionalEvents:
+- condition: scene.slots.status == "FINAL"
+  handler:
+    staticPrompt:
+      candidates:
+      - promptResponse:
+          firstSimple:
+            variants:
+            - speech: |2-
+
+                次をどうぞ。
+    webhookHandler: get_idols_by_data
+  transitionToScene: Reception
+slots:
+- commitBehavior:
+    writeSessionParam: attr
+  name: attr
+  promptSettings:
+    initialPrompt:
+      staticPrompt:
+        candidates:
+        - promptResponse:
+            firstSimple:
+              variants:
+              - speech: 何のデータが $session.params.data のアイドルを知りたいですか？
+  required: true
+  type:
+    name: attributions
+- commitBehavior:
+    writeSessionParam: data
+  name: data
+  promptSettings:
+    initialPrompt:
+      staticPrompt:
+        candidates:
+        - promptResponse:
+            firstSimple:
+              variants:
+              - speech: $session.params.attr がどれくらいのアイドルを知りたいですか？
+  required: true
+  type:
+    name: actions.type.Number

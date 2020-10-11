@@ -4,4 +4,4 @@ handler:
     - promptResponse:
         firstSimple:
           variants:
-          - speech: 分かりませんでした。もう一度お願いします。
+          - speech: もう一度お願いします。「天海春香の誕生日を教えて」のように話しかけてください。

@@ -1,76 +1,26 @@
-conditionalEvents:
-- condition: scene.slots.status == "FINAL" && session.params.attr != "" && session.params.idol
-    != ""
-  handler:
-    staticPrompt:
-      candidates:
-      - promptResponse:
-          firstSimple:
-            variants:
-            - speech: 次をどうぞ。
-    webhookHandler: get_idol_data
-  transitionToScene: Reception
-- condition: scene.slots.status == "FINAL" && session.params.birthday !="" && session.params.attr
-    !=""
-  handler:
-    staticPrompt:
-      candidates:
-      - promptResponse:
-          firstSimple:
-            variants:
-            - speech: 次をどうぞ。
-    webhookHandler: get_idols_by_birthday
-  transitionToScene: Reception
-- condition: scene.slots.status == "FINAL" && session.params.data !="" && session.params.attr
-    !=""
-  handler:
-    staticPrompt:
-      candidates:
-      - promptResponse:
-          firstSimple:
-            variants:
-            - speech: 次をどうぞ。
-    webhookHandler: get_idols_by_data
-  transitionToScene: Reception
-- condition: scene.slots.status == "FINAL" && session.params.attr != ""
-  handler:
-    staticPrompt:
-      candidates:
-      - promptResponse:
-          firstSimple:
-            variants:
-            - speech: 誰の $session.params.attr を知りたいですか？
-- condition: scene.slots.status == "FINAL" && session.params.idol !=""
-  handler:
-    staticPrompt:
-      candidates:
-      - promptResponse:
-          firstSimple:
-            variants:
-            - speech: $session.params.idol さんの何の情報を知りたいですか？
 intentEvents:
 - intent: ask_attr
-  transitionToScene: Reception
+  transitionToScene: Reply_Data
 - intent: ask_idols_by_birthday
-  transitionToScene: Reception
+  transitionToScene: Reply_Idols_by_birthday
 - intent: ask_idols_by_data
-  transitionToScene: Reception
+  transitionToScene: Reply_Idols_by_Data
 slots:
-- commitBehavior:
-    writeSessionParam: attr
-  name: attr
-  type:
-    name: attributions
 - commitBehavior:
     writeSessionParam: idol
   name: idol
   type:
     name: idols
 - commitBehavior:
+    writeSessionParam: attr
+  name: attr
+  type:
+    name: attributions
+- commitBehavior:
     writeSessionParam: birthday
   name: birthday
   type:
-    name: actions.type.Date
+    name: actions.type.DateTime
 - commitBehavior:
     writeSessionParam: data
   name: data

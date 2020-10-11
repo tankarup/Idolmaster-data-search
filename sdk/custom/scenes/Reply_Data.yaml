@@ -1,0 +1,32 @@
+conditionalEvents:
+- condition: scene.slots.status == "FINAL"
+  handler:
+    staticPrompt:
+      candidates:
+      - promptResponse:
+          firstSimple:
+            variants:
+            - speech: |2-
+
+                次をどうぞ。
+    webhookHandler: get_idol_data
+  transitionToScene: Reception
+slots:
+- commitBehavior:
+    writeSessionParam: idol
+  name: idol
+  promptSettings:
+    initialPrompt:
+      webhookHandler: get_reply_text
+  required: true
+  type:
+    name: idols
+- commitBehavior:
+    writeSessionParam: attr
+  name: attr
+  promptSettings:
+    initialPrompt:
+      webhookHandler: get_reply_text
+  required: true
+  type:
+    name: attributions

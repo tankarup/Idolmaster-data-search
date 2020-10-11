@@ -1,0 +1,8 @@
+parameters:
+- name: idols
+  type:
+    name: idols
+trainingPhrases:
+- ($idols '千早' auto=true)
+- ($idols '律子' auto=false)のこと
+- ($idols '春香' auto=false)の情報
